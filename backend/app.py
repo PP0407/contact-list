@@ -25,6 +25,11 @@ with app.app_context():
     db.create_all()
 
 
+@app.route('/')
+def index():
+    return jsonify({'status': 'Contact List API is running'})
+
+
 @app.route('/contacts', methods=['GET'])
 def get_contacts():
     contacts = Contact.query.all()
